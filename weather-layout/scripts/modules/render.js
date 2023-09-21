@@ -3,17 +3,17 @@ import { getCurrentDateTime } from "./utils.js";
 
 export const renderWidgetToday = (widget) => {
 
-  const currentDateTime = getCurrentDateTime();
-  console.log('currentDateTime', currentDateTime);
+  const { dayOfMonth, month, year, hours, minutes, dayOfWeek } = getCurrentDateTime();
+
 
   widget.insertAdjacentHTML(
     'beforeend',
     `
      <div class="widget__today">
       <div class="widget__date-block">
-        <p class="widget__date">20 июн 2023</p>
-        <p class="widget__time">${currentDateTime.hours}</p>
-        <p class="widget__day">${currentDateTime.dayOfWeek}</p>
+        <p class="widget__date">${dayOfMonth}&nbsp;${month}&nbsp;${year} г.</p>
+        <p class="widget__time">${hours}:${minutes}</p>
+        <p class="widget__day">${dayOfWeek}</p>
       </div>
       <div class="widget__icon">
         <img class="widget__img" src="./icon/01d.svg" alt="Погода">
